@@ -5,7 +5,7 @@ class Config:
     API_HASH = os.environ.get("API_HASH", "5264bf4663e9159565603522f58d3c18")       
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "5622965116:AAHGo5ZLTRZ0TiXaNkhT49G5txIHGhSMkZ0")
     BOT_SESSION = os.environ.get("BOT_SESSION", "forwardbot")
-    OWNER_ID = os.environ.get("OWNER_ID", "1391556668 5162208212")                             
+    OWNER_ID = os.environ.get("OWNER_ID", "1391556668")                             
     DATABASE_URI = os.environ.get("DATABASE_URI", "mongodb+srv://KarthikMovies:KarthikUK007@cluster0.4l5byki.mongodb.net/?retryWrites=true&w=majority")  
     DATABASE_NAME = os.environ.get("DATABASE_NAME", "Cluste0")
     COLLECTION_NAME = os.environ.get('COLLECTION_NAME', 'Data')
