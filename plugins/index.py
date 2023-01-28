@@ -31,7 +31,7 @@ async def run(bot, message):
         try:
             chat = await bot.ask(text = "To Index a channel you may send me the channel invite link, so that I can join channel and index the files.\n\nIt should be something like <code>https://t.me/xxxxxx</code> or <code>https://t.me/joinchat/xxxxxx</code>", chat_id = message.from_user.id, filters=filters.text, timeout=30)
             channel=chat.text
-        except asyncio.exceptions.TimeoutError:
+        except TimeoutError:
             await bot.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /index")
             return
 
@@ -58,7 +58,7 @@ async def run(bot, message):
             try:
                 id = await bot.ask(text = "Since this is a Private channel I need Channel id, Please send me channel ID\n\nIt should be something like <code>-100xxxxxxxxx</code>", chat_id = message.from_user.id, filters=filters.text, timeout=30)
                 channel=id.text
-            except asyncio.exceptions.TimeoutError:
+            except TimeoutError:
                 await bot.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /index")
                 return
             channel=id.text
@@ -82,7 +82,7 @@ async def run(bot, message):
         try:
             SKIP = await bot.ask(text = "Send me from where you want to start forwarding\nSend 0 for from beginning.", chat_id = message.from_user.id, filters=filters.text, timeout=30)
             print(SKIP.text)
-        except asyncio.exceptions.TimeoutError:
+        except TimeoutError:
             await bot.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /index")
             return
         try:
@@ -96,7 +96,7 @@ async def run(bot, message):
         try:
             LIMIT = await bot.ask(text = "Send me from Upto what extend(LIMIT) do you want to Index\nSend 0 for all messages.", chat_id = message.from_user.id, filters=filters.text, timeout=30)
             print(LIMIT.text)
-        except asyncio.exceptions.TimeoutError:
+        except TimeoutError:
             await bot.send_message(message.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /index")
             return
         try:
@@ -148,7 +148,7 @@ async def cb_handler(bot: Client, query: CallbackQuery):
     while True:
         try:
             get_caption = await bot.ask(text = "Do you need a custom caption?\n\nIf yes , Send me caption \n\nif No send '0'", chat_id = query.from_user.id, filters=filters.text, timeout=30)
-        except asyncio.exceptions.TimeoutError:
+        except TimeoutError:
             await bot.send_message(query.from_user.id, "Error!!\n\nRequest timed out.\nRestart by using /index")
             return
         input=get_caption.text
